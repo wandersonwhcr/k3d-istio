@@ -21,11 +21,9 @@ kubectl label namespace default istio-injection=enabled
 ```
 
 ```
-kubectl apply \
-    --filename https://raw.githubusercontent.com/istio/istio/release-1.11/samples/bookinfo/platform/kube/bookinfo.yaml
+kubectl apply --filename bookinfo.yaml
 
-kubectl apply \
-    --filename https://raw.githubusercontent.com/istio/istio/release-1.11/samples/bookinfo/networking/bookinfo-gateway.yaml
+kubectl apply --filename bookinfo-gateway.yaml
 
 istioctl analyze
 ```
@@ -41,11 +39,9 @@ echo "http://$INGRESS_HOST:$INGRESS_PORT/productpage"
 ```
 
 ```
-kubectl apply \
-    --filename https://raw.githubusercontent.com/istio/istio/master/samples/addons/prometheus.yaml
+kubectl apply --filename prometheus.yaml
 
-kubectl apply \
-    --filename https://raw.githubusercontent.com/istio/istio/master/samples/addons/kiali.yaml
+kubectl apply --filename kiali.yaml
 
 istioctl dashboard kiali &
 
