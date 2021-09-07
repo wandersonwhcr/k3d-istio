@@ -40,6 +40,20 @@ INGRESS_PORT=`kubectl get service istio-ingressgateway --namespace istio-system 
 echo "http://$INGRESS_HOST:$INGRESS_PORT/productpage"
 ```
 
+```
+kubectl apply \
+    --filename https://raw.githubusercontent.com/istio/istio/master/samples/addons/prometheus.yaml
+
+kubectl apply \
+    --filename https://raw.githubusercontent.com/istio/istio/master/samples/addons/kiali.yaml
+
+istioctl dashboard kiali &
+
+for i in `seq 100`; do
+    curl --silent --output /dev/null "http://$INGRESS_HOST:$INGRESS_PORT/productpage"
+done
+```
+
 ## References
 
 * [k3d - Kubernetes & Istio (Service Mesh)](https://brettmostert.medium.com/k3d-kubernetes-istio-service-mesh-286a7ba3a64f)
