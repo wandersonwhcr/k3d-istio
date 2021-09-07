@@ -15,7 +15,10 @@ kubectl cluster-info
 ```
 
 ```
-istioctl install --skip-confirmation --filename istio-operator.yaml
+# istioctl install --skip-confirmation --set profile=demo
+# istioctl manifest generate --set profile=demo > istio.yaml
+kubectl create namespace istio-system
+kubectl apply --filename istio.yaml
 
 kubectl label namespace default istio-injection=enabled
 ```
@@ -48,6 +51,12 @@ istioctl dashboard kiali &
 for i in `seq 100`; do
     curl --silent --output /dev/null "http://$INGRESS_HOST:$INGRESS_PORT/productpage"
 done
+```
+
+## Notes
+
+```
+istioctl profile dump demo
 ```
 
 ## References
