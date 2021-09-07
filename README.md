@@ -15,7 +15,7 @@ kubectl cluster-info
 ```
 
 ```
-istioctl install --set profile=demo --skip-confirmation
+istioctl install --skip-confirmation --filename istio-operator.yaml
 
 kubectl label namespace default istio-injection=enabled
 ```
