@@ -14,6 +14,12 @@ kubectl config use-context k3d-hello
 kubectl cluster-info
 ```
 
+```
+istioctl install --set profile=demo --skip-confirmation
+
+kubectl label namespace default istio-injection=enabled
+```
+
 ## References
 
 * [k3d - Kubernetes & Istio (Service Mesh)](https://brettmostert.medium.com/k3d-kubernetes-istio-service-mesh-286a7ba3a64f)
