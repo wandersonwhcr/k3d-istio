@@ -59,6 +59,20 @@ done
 istioctl profile dump demo
 ```
 
+```
+kubectl apply --filename virtual-service-all-v1.yaml
+
+kubectl get virtualservices --output yaml
+kubectl get destinationrules --output yaml
+```
+
+## Request Routing
+
+```
+kubectl apply --filename destination-rule-all.yaml
+kubectl apply --filename virtual-service-all-v1.yaml
+```
+
 ## References
 
 * [k3d - Kubernetes & Istio (Service Mesh)](https://brettmostert.medium.com/k3d-kubernetes-istio-service-mesh-286a7ba3a64f)
