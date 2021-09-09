@@ -82,6 +82,13 @@ kubectl apply --filename virtual-service-ratings-test-delay.yaml
 kubectl apply --filename virtual-service-ratings-test-abort.yaml
 ```
 
+## Traffic Shifting
+
+```
+kubectl apply --filename virtual-service-reviews-50-v3.yaml
+kubectl apply --filename virtual-service-reviews-v3.yaml
+```
+
 ## References
 
 * [k3d - Kubernetes & Istio (Service Mesh)](https://brettmostert.medium.com/k3d-kubernetes-istio-service-mesh-286a7ba3a64f)
