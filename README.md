@@ -71,6 +71,8 @@ kubectl get destinationrules --output yaml
 ```
 kubectl apply --filename destination-rule-all.yaml
 kubectl apply --filename virtual-service-all-v1.yaml
+
+kubectl apply --filename virtual-service-reviews-test-v2.yaml
 ```
 
 ## References
