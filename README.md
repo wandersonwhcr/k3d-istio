@@ -75,6 +75,13 @@ kubectl apply --filename virtual-service-all-v1.yaml
 kubectl apply --filename virtual-service-reviews-test-v2.yaml
 ```
 
+## Fault Injection
+
+```
+kubectl apply --filename virtual-service-ratings-test-delay.yaml
+kubectl apply --filename virtual-service-ratings-test-abort.yaml
+```
+
 ## References
 
 * [k3d - Kubernetes & Istio (Service Mesh)](https://brettmostert.medium.com/k3d-kubernetes-istio-service-mesh-286a7ba3a64f)
