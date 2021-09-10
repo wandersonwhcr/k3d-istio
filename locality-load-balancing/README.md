@@ -12,4 +12,9 @@ for CTX in "$CTX_R1_Z1" "$CTX_R1_Z2" "$CTX_R2_Z3" "$CTX_R3_Z4"; do
         --agents 1 \
         --k3s-server-arg --no-deploy=traefik
 done
+
+for CTX in "$CTX_R1_Z1" "$CTX_R1_Z2" "$CTX_R2_Z3" "$CTX_R3_Z4"; do
+    kubectl config use-context "k3d-$CTX"
+    istioctl install --skip-confirmation --set profile=demo
+done
 ```
