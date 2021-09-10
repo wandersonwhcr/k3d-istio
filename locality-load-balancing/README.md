@@ -23,4 +23,7 @@ for CTX in "$CTX_R1_Z1" "$CTX_R1_Z2" "$CTX_R2_Z3" "$CTX_R3_Z4"; do
     kubectl apply --filename sample.yaml
     kubectl apply --namespace sample --filename "helloworld-$CTX.yaml"
 done
+
+kubectl config use-context "k3d-$CTX_R1_Z1"
+kubectl apply --namespace sample --filename sleep.yaml
 ```
