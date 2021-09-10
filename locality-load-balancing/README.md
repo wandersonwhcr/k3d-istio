@@ -39,4 +39,8 @@ kubectl exec deployments/helloworld-region1-zone1 \
     --namespace sample \
     --container istio-proxy \
     -- curl -sSL -X POST http://127.0.0.1:15000/drain_listeners
+
+for CTX in "$CTX_R1_Z1" "$CTX_R1_Z2" "$CTX_R2_Z3" "$CTX_R3_Z4"; do
+    k3d cluster delete "$CTX"
+done
 ```
