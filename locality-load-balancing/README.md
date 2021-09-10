@@ -34,4 +34,9 @@ kubectl apply --namespace sample --filename destinationrule.yaml
 kubectl exec deployments/sleep \
     --namespace sample \
     -- curl -sSL http://helloworld.sample:5000/hello
+
+kubectl exec deployments/helloworld-region1-zone1 \
+    --namespace sample \
+    --container istio-proxy \
+    -- curl -sSL -X POST http://127.0.0.1:15000/drain_listeners
 ```
