@@ -26,4 +26,12 @@ done
 
 kubectl config use-context "k3d-$CTX_R1_Z1"
 kubectl apply --namespace sample --filename sleep.yaml
+
+CTX_PRIMARY="$CTX_R1_Z1"
+kubectl config use-context "k3d-$CTX_PRIMARY"
+kubectl apply --namespace sample --filename destinationrule.yaml
+
+kubectl exec deployments/sleep \
+    --namespace sample \
+    -- curl -sSL http://helloworld.sample:5000/hello
 ```
