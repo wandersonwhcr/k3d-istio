@@ -8,4 +8,7 @@ k3d cluster create region-1 \
     --k3s-server-arg --no-deploy=traefik
 
 istioctl install --skip-confirmation --set profile=demo
+
+kubectl label namespace default istio-injection=enabled
+kubectl apply --filename httpbin.yaml
 ```
