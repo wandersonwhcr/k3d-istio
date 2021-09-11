@@ -22,3 +22,11 @@ INGRESS_PORT=`kubectl get service istio-ingressgateway --namespace istio-system 
 
 echo "http://$INGRESS_HOST:$INGRESS_PORT/"
 ```
+
+```
+kubectl apply --filename ingress.yaml
+
+curl "http://$INGRESS_HOST:$INGRESS_PORT/status/200" \
+    --silent --head \
+    --header 'Host: httpbin.example.com'
+```
